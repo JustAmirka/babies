@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'icons/icons.dart';
 
@@ -45,9 +46,13 @@ Widget getDrawer(BuildContext context) {
                 ),
               )
             ]),
-            /*onPressed: () {
+            onPressed: () {
+*/
+/*
               Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-            }*/),
+*//*
+
+            }),
         SizedBox(height: screenHeight*0.02,),
         MaterialButton(
             highlightColor: Colors.blue[800],
@@ -68,9 +73,13 @@ Widget getDrawer(BuildContext context) {
                 ),
               )
             ]),
-            /*onPressed: () {
+            onPressed: () {
+*/
+/*
               Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
-            }*/),
+*//*
+
+            }),
         SizedBox(height: screenHeight*0.02,),
         MaterialButton(
             highlightColor: Colors.blue[800],
@@ -91,9 +100,13 @@ Widget getDrawer(BuildContext context) {
                 ),
               )
             ]),
-            /*onPressed: () {
+            onPressed: () {
+*/
+/*
               Navigator.push(context, MaterialPageRoute(builder: (context) => BusPage()));
-            }*/),
+*//*
+
+            }),
         SizedBox(height: screenHeight*0.02,),
         MaterialButton(
             highlightColor: Colors.blue[800],
@@ -114,9 +127,13 @@ Widget getDrawer(BuildContext context) {
                 ),
               )
             ]),
-            /*onPressed: () {
+            onPressed: () {
+*/
+/*
               Navigator.push(context, MaterialPageRoute(builder: (context) => NewsPage()));
-            }*/),
+*//*
+
+            }),
 
         SizedBox(height: screenHeight*0.02,),
         MaterialButton(
@@ -138,9 +155,13 @@ Widget getDrawer(BuildContext context) {
                 ),
               )
             ]),
-            /*onPressed: () {
+            onPressed: () {
+*/
+/*
               Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactPage()));
-            }*/),
+*//*
+
+            }),
 
 
         SizedBox(height: screenHeight*0.05,),
@@ -164,9 +185,9 @@ Widget getDrawer(BuildContext context) {
                 ),
               )
             ]),
-            /*onPressed: () {
+            onPressed: () {
               Navigator.of(context).pop();
-            }*/),
+            }),
 
       ])));
 
@@ -202,3 +223,4 @@ Widget getSeparateDivider() {
     ],
   );
 }
+*/
