@@ -30,11 +30,50 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text('Password Reset'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: emailTextInputController,
+                keyboardType: TextInputType.emailAddress,
+                autocorrect: false,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Your Email',
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter your email';
+                  } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                    return 'Please enter a valid email';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: resetPassword,
+                child: const Center(child: Text('Reset Password')),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
-    }
+
+
+
+}
 
     const snackBar = SnackBar(
       content: Text('Password reset has been performed.'),

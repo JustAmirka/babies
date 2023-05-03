@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:babies/screen/cart.dart';
+import 'package:babies/screen/signup.dart';
+import 'package:babies/screen/signin.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Baby Shop',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
       ),
       home: MyHomePage(),
     );
@@ -66,9 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Sign In'),
                   onPressed: () {
-                    // Handle login button press
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                 ),
               ],
