@@ -1,7 +1,10 @@
+import 'package:babies/drawer.dart';
+import 'package:babies/screen/carusel.dart';
 import 'package:flutter/material.dart';
 import 'package:babies/screen/cart.dart';
 import 'package:babies/screen/signup.dart';
 import 'package:babies/screen/signin.dart';
+import 'package:babies/drawer.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       title: 'Baby Shop',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
@@ -24,8 +28,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<String> images = [
+    'https://target.scene7.com/is/image/Target/shoes-211215-1639605768116',
+    'https://picsum.photos/250?image=9',
+    'https://picsum.photos/250?image=5',
+    'https://picsum.photos/250?image=12',
+    'https://picsum.photos/250?image=15',
+    'https://picsum.photos/250?image=17',
+  ];
+  int _selectedIndex = 0; // Define the variable here
+
+  void _onItemTapped(int index) { // Define the function here
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Baby Shop'),
@@ -56,22 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'Categories',
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-                ElevatedButton(
-                  child: const Text('Sign In'),
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-                  },
                 ),
               ],
             ),
@@ -113,6 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+            const SizedBox(height: 16.0),
+            GoodsCarousel(images: images),
 
             const SizedBox(height: 16.0),
             Expanded(
@@ -193,6 +210,35 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      bottomNavigationBar: getNavbar(context),
+    );
+  }
+  Widget getNavbar(BuildContext context) {
+    return BottomNavigationBar(
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped,
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.category),
+          label: 'Catalogue',
+          backgroundColor: Colors.blue,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Favorite',
+          backgroundColor: Colors.blue,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart),
+          label: 'Cart',
+          backgroundColor: Colors.blue,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
+          backgroundColor: Colors.blue,
+        ),
+      ],
     );
   }
 }

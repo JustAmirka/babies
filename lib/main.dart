@@ -1,3 +1,4 @@
+import 'package:babies/screen/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:babies/screen/home.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
-      home:  MyHomePage(),
+      home:  LoginPage(),
     );
   }
 }
